@@ -20,8 +20,7 @@ public class StatisticGenerator extends ActionBarActivity {
     Button start;
     private Map<String, String[]> dictionary = new HashMap<String, String[]>();
     String[] percentage = new String[2];
-    String[] pronouns = new String[1];
-    String[] listofJokes = new String[5];
+    String[] pronouns = new String[11];
     boolean filledDictionary = false;
 
     @Override
@@ -33,10 +32,36 @@ public class StatisticGenerator extends ActionBarActivity {
 
         //percentage = new String[2];
         percentage[0] = "%";
-        percentage[1] = "of ";
+        percentage[1] = " of ";
 
         //pronouns = new String[1];
         pronouns[0] = "mathematicians";
+        pronouns[1] = "statisticians";
+        pronouns[2] = "lawyers";
+        pronouns[3] = "politician";
+        pronouns[4] = "professors";
+        pronouns[5] = "teaching assistants";
+        pronouns[6] = "nurses";
+        pronouns[7] = "doctors";
+        pronouns[8] = "dentists";
+        pronouns[9] = "police officers";
+        pronouns[10] = "Computer Science Majors";
+//        pronouns[11] = "Psychology Majors";
+//        pronouns[12] = "Philosophy Majors";
+//        pronouns[13] = "males";
+//        pronouns[14] = "females";
+//        pronouns[15] = "university students";
+//        pronouns[16] = "otakus";
+//        pronouns[17] = "LoL players";
+//        pronouns[18] = "DoTA players";
+//        pronouns[19] = "airplane pilots";
+//        pronouns[20] = "Science Majors";
+//        pronouns[21] = "iPhone users";
+//        pronouns[22] = "Android users";
+//        pronouns[23] = "people over the age of 65";
+//        pronouns[24] = "people under the age of 18";
+
+
     }
 
 
@@ -63,14 +88,19 @@ public class StatisticGenerator extends ActionBarActivity {
     }
 
     private void fillDictionary() {
-        //listofJokes = new String[5];
-        listofJokes[0] = "punchline1";
-        listofJokes[1] = "punchline2";
-        listofJokes[2] = "punchline3";
-        listofJokes[3] = "punchline4";
-        listofJokes[4] = "punchline5";
         //System.out.println("HELLO" + listofJokes[0]);
-        dictionary.put(pronouns[0], new String[] {"punchline1", "punchline2", "punchline3", "punchline4", "punchline5"});
+        dictionary.put(pronouns[0], new String[] {"become high schoolteachers", "wish they were engineers", "have no sense of humour"});
+        dictionary.put(pronouns[1], new String[] {"make up their numbers", "hate their profession", "are mean"});
+        dictionary.put(pronouns[2], new String[] {"work only 4 months a year", "hate teenage clients", "end up on the news"});
+        dictionary.put(pronouns[3], new String[] {"are involved in scandals", "do not follow through with their promises", "know their speeches are about nothing"});
+        dictionary.put(pronouns[4], new String[] {"love teaching", "hate teaching", "enjoy giving out pop quizzes", "love it when students ask for a mark boost"});
+        dictionary.put(pronouns[5], new String[] {"lower the grade of a paper if there is too much writing", "do not actually help at tutorials", "enjoy marking the same question hundreds of times"});
+        dictionary.put(pronouns[6], new String[] {"enjoy scooping human poop", "get less than 1 hour of sleep per night", "talk to their patients about their feelings"});
+        dictionary.put(pronouns[7], new String[] {"enjoy touching their patients", "enjoy the scream of pain when giving vaccinations", "do not actually wash their hands"});
+        dictionary.put(pronouns[8], new String[] {"love mocking you about your bleeding gums", "try to make conversation while instruments are in your mouth"});
+        dictionary.put(pronouns[9], new String[] {"ride bikes instead of cars", "have racial biases", "are out of control"});
+        dictionary.put(pronouns[10], new String[] {"get enough sleep", "finish their homework", "cry themselves to sleep at night", "enjoy running into bugs"});
+
     }
 
     private String generateX() {
@@ -82,7 +112,7 @@ public class StatisticGenerator extends ActionBarActivity {
             chance = (randomGenerator.nextInt(101)) + percentage[temp];
         }
         else if (temp == 1) {
-            int max = randomGenerator.nextInt() + 1;
+            int max = randomGenerator.nextInt(200) + 1;
             chance = randomGenerator.nextInt(max) + percentage[temp] + randomGenerator.nextInt(max) + " ";
         }
 
