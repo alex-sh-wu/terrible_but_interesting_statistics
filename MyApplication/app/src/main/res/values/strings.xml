@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">My Application</string>
+
+    <string name="interesting_title">Interesting Statistics 1.0</string>
+    <string name="get_stat">Get My Statistic of the Day</string>
+    <string name="button_name">START</string>
+    <string name="action_settings">Settings</string>
+</resources>
