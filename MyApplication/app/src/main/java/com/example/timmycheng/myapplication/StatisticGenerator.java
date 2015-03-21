@@ -4,6 +4,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -11,13 +12,19 @@ import android.widget.TextView;
 public class StatisticGenerator extends ActionBarActivity {
 
 
-    TextView factOfTheDay = (TextView) findViewById(R.id.get_stat);
-    Button start = (Button) findViewById(R.id.button);
+    TextView factOfTheDay;
+    Button start;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statistic_generator);
+        factOfTheDay = (TextView) findViewById(R.id.get_stat);
+        start = (Button) findViewById(R.id.button);
+
+
     }
 
 
@@ -42,5 +49,11 @@ public class StatisticGenerator extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void onClickGenerateStat(View view) {
+        factOfTheDay.setText("button clicked");
+        start.setText("NEXT");
+    }
 }
+
 
