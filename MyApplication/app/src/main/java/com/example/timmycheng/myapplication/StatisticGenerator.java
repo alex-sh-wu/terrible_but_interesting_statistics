@@ -33,7 +33,7 @@ public class StatisticGenerator extends ActionBarActivity {
 
         //percentage = new String[2];
         percentage[0] = "%";
-        percentage[1] = "of ";
+        percentage[1] = " of ";
 
         //pronouns = new String[1];
         pronouns[0] = "mathematicians";
@@ -82,8 +82,10 @@ public class StatisticGenerator extends ActionBarActivity {
             chance = (randomGenerator.nextInt(101)) + percentage[temp];
         }
         else if (temp == 1) {
-            int max = randomGenerator.nextInt() + 1;
-            chance = randomGenerator.nextInt(max) + percentage[temp] + randomGenerator.nextInt(max) + " ";
+            int max = randomGenerator.nextInt(200) + 1;
+            int number1 = randomGenerator.nextInt(max);
+            int number2 = randomGenerator.nextInt(max);
+            chance = Math.min(number1, number2) + percentage[temp] + Math.max(number1, number2) + " ";
         }
 
         return chance;
