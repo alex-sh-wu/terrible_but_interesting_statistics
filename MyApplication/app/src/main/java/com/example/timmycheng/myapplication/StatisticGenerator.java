@@ -60,33 +60,6 @@ public class StatisticGenerator extends ActionBarActivity {
         pronouns[23] = "people over the age of 65";
         pronouns[24] = "people under the age of 18";
 
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_statistic_generator, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    private void fillDictionary() {
-        //System.out.println("HELLO" + listofJokes[0]);
         dictionary.put(pronouns[0], new String[] {"become high schoolteachers", "wish they were engineers", "have no sense of humour"});
         dictionary.put(pronouns[1], new String[] {"make up their numbers", "hate their profession", "are mean"});
         dictionary.put(pronouns[2], new String[] {"work only 4 months a year", "hate teenage clients", "end up on the news"});
@@ -112,8 +85,29 @@ public class StatisticGenerator extends ActionBarActivity {
         dictionary.put(pronouns[22], new String[] {"know they will never fit in", "will always fight for their cause", "have no idea what the differences are"});
         dictionary.put(pronouns[23], new String[] {"make up life stories", "enjoy long walks to the fridge", "pretend to require assistance"});
         dictionary.put(pronouns[24], new String[] {"believe life gets easier", "have smoked cigarettes, done drugs or had sex", "think they are adults"});
+    }
 
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_statistic_generator, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     private String generateX() {
@@ -126,7 +120,9 @@ public class StatisticGenerator extends ActionBarActivity {
         }
         else if (temp == 1) {
             int max = randomGenerator.nextInt(200) + 1;
-            chance = randomGenerator.nextInt(max) + percentage[temp] + randomGenerator.nextInt(max) + " ";
+            int number1 = randomGenerator.nextInt(max);
+            int number2 = randomGenerator.nextInt(max);
+            chance = Math.min(number1, number2) + percentage[temp] + Math.max(number1, number2) + " ";
         }
 
         return chance;
@@ -145,11 +141,6 @@ public class StatisticGenerator extends ActionBarActivity {
     }
 
     public void onClickGenerateStat(View view) {
-        if (!filledDictionary) {
-            filledDictionary = true;
-            fillDictionary();
-        }
-        fillDictionary();
         factOfTheDay.setText(generateX() + " " + generateYandZ());
         start.setText("NEXT");
     }
